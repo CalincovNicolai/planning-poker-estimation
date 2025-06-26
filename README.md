@@ -12,7 +12,7 @@ A real-time collaborative tool for estimating task complexity using Planning Pok
 - ✅ Votes are hidden until all users vote
 - ✅ Responsive layout (mobile + desktop)
 - ✅ Clean animations with Framer Motion
-- ✅ Session-based vote persistence on refresh
+- ✅ Session-based vote persistence on refresh page
 - ✅ Room lifecycle management (join, leave, reset)
 
 ---
