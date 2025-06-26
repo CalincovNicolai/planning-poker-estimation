@@ -31,7 +31,7 @@ export const useWebSocket = (roomId: string | undefined) => {
         nameRef.current = name;
         setCurrentUserId(userId);
 
-        const ws = new WebSocket('ws://localhost:3001');
+        const ws = new WebSocket(import.meta.env.VITE_BACKEND_WS_URL);
         setSocket(ws);
 
         const newParticipant: IParticipantModel = {
