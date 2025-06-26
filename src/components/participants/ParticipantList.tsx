@@ -1,52 +1,55 @@
 import type {IParticipantListModel} from '../../types/types.ts'
-import Card from "../card/Card.tsx";
-import {FiX, FiCheck} from "react-icons/fi";
-import {AnimatePresence, motion} from "framer-motion";
-import IconWrapper from "../primitives/IconWrapper.tsx";
-import TruncatedNameWithTooltip from '../primitives/TruncatedNameWithTooltip.tsx';
+import {FiInfo} from "react-icons/fi";
+import {motion} from "framer-motion";
+import InlineAlert from "../primitives/InlineAlert.tsx";
+import {useMemo} from "react";
+import ParticipantRow from "./ParticipantRow.tsx";
 
-export default function ParticipantList({participants, revealVotes}: IParticipantListModel) {
+const listVariants = {
+    hidden: {opacity: 0},
+    visible: {
+        opacity: 1,
+        transition: {staggerChildren: 0.1}
+    }
+};
+
+const itemVariants = {
+    hidden: {opacity: 0, y: 10},
+    visible: {opacity: 1, y: 0}
+};
+
+export default function ParticipantList({participants, revealVotes, timer, allVoted}: IParticipantListModel) {
+    const hasStarted = participants.length > 0;
+    const hasTimer = timer !== null && timer > 0;
+    const notEveryoneVoted = hasStarted && !allVoted;
+
+    const remainingCount = useMemo(
+        () => participants.filter(p => !p.hasVoted).length,
+        [participants]
+    );
+    const showWaitingHint = useMemo(
+        () => notEveryoneVoted && hasTimer,
+        [notEveryoneVoted, hasTimer]
+    );
+
     return (
-        <div className="w-full max-w-2xl space-y-2">
+        <motion.div
+            className="w-full max-w-2xl space-y-2"
+            variants={listVariants}
+            initial="hidden"
+            animate="visible"
+        >
             {participants.map((participant) => (
-                <div
+                <ParticipantRow
                     key={participant.id}
-                    className="flex justify-between items-center bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl h-18 px-4 py-3 shadow-sm"
-                >
-                    <div className="flex items-center gap-2">
-                        <span className="font-medium text-zinc-800 dark:text-white">
-                            <TruncatedNameWithTooltip
-                                name={participant.name}
-                                maxLength={25}
-                                className="font-medium text-zinc-800 dark:text-white"
-                            />
-                        </span>
-                        {participant.isCurrentUser && (
-                            <span className="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-xl">
-                                You
-                            </span>
-                        )}
-                    </div>
-
-                    <AnimatePresence mode="wait">
-                        {revealVotes ? (
-                            <motion.div
-                                key={participant.id}
-                                initial={{opacity: 0, scale: 0.9, rotateX: -90}}
-                                animate={{opacity: 1, scale: 1, rotateX: 0}}
-                                exit={{opacity: 0, scale: 0.9, rotateX: 90}}
-                                transition={{duration: 0.4, ease: 'easeOut'}}
-                            >
-                                <Card value={participant.vote ?? '?'} cardWrapperClassName="w-10 h-12" readOnly/>
-                            </motion.div>
-                        ) : participant.hasVoted ? (
-                            <IconWrapper icon={<FiCheck/>} className="text-xl text-green-600"/>
-                        ) : (
-                            <IconWrapper icon={<FiX/>} className="text-xl text-red-500"/>
-                        )}
-                    </AnimatePresence>
-                </div>
+                    participant={participant}
+                    revealVotes={revealVotes}
+                    itemVariants={itemVariants}
+                />
             ))}
-        </div>
-    )
+            <InlineAlert show={showWaitingHint} icon={<FiInfo/>} variant="info">
+                Waiting for {remainingCount} participant{remainingCount > 1 ? 's' : ''} to vote...
+            </InlineAlert>
+        </motion.div>
+    );
 }

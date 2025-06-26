@@ -87,7 +87,7 @@ export default function Lobby() {
                     <Button
                         type="submit"
                         disabled={!!errors.name || !!errors.roomId}
-                        className="px-6 py-3 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-semibold cursor-pointer disabled:bg-zinc-200 dark:disabled:bg-zinc-700 disabled:text-zinc-400 disabled:cursor-not-allowed transition-colors"
+                        className="px-6 py-3 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-semibold cursor-pointer disabled:bg-zinc-200 dark:disabled:bg-zinc-600 disabled:text-zinc-400 disabled:cursor-not-allowed transition-colors"
                     >
                         Join Room
                     </Button>

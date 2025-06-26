@@ -20,7 +20,7 @@ export default function CopyToClipboardButton({value, className}: ICopyToClipboa
     return (
         <Button
             onClick={handleCopy}
-            className={`flex items-center justify-center gap-2 w-28 h-10 p-3 bg-zinc-200 font-medium text-sm dark:bg-zinc-700 rounded-xl text-black dark:text-white hover:bg-blue-400 hover:text-white transition-colors cursor-pointer ${className}`}
+            className={`flex items-center justify-center gap-2 w-28 h-10 p-3 bg-zinc-200 font-medium text-sm dark:bg-zinc-600 rounded-xl text-black dark:text-white hover:bg-blue-400 hover:text-white transition-colors cursor-pointer ${className}`}
         >
             <IconWrapper icon={copied ? <FiCheck/> : <FiCopy/>}/>
             {copied ? 'Copied' : 'Copy ID'}

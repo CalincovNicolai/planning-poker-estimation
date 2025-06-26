@@ -1,4 +1,5 @@
 import React, {type ReactElement, type ReactNode} from "react";
+import type {Variants} from "framer-motion";
 
 export const ThemeMode = {
     Light: 'light',
@@ -8,6 +9,7 @@ export const ThemeMode = {
 export type IThemeMode = typeof ThemeMode[keyof typeof ThemeMode];
 export type VoteValue = '1' | '2' | '3' | '5' | '8' | '13' | '?' | '☕'
 export type AlertVariant = 'info' | 'warning' | 'danger' | 'success';
+export type ConfirmDialogVariant = 'default' | 'danger' | 'warning'
 export type IInputModel = React.InputHTMLAttributes<HTMLInputElement>
 export type ButtonProps = {
     children: ReactNode
@@ -17,6 +19,14 @@ export type ButtonProps = {
 export interface IParticipantListModel {
     participants: IParticipantModel[]
     revealVotes: boolean
+    timer: number
+    allVoted: boolean
+}
+
+export interface IParticipantRowModel {
+    participant: IParticipantModel
+    revealVotes: boolean
+    itemVariants: Variants
 }
 
 export interface IParticipantModel {
@@ -100,4 +110,15 @@ export interface ITruncatedTextWithTooltipModel {
 export interface IErrorMessageModel {
     name?: string;
     roomId?: string;
+}
+
+export interface IConfirmDialogModel {
+    open: boolean;
+    onCancel: () => void;
+    onConfirm: () => void;
+}
+
+export interface IConfirmDialogVariantStylesModel {
+    panel: string;
+    confirm: string
 }

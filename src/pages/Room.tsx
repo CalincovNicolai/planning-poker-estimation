@@ -40,9 +40,14 @@ export default function Room() {
                         <Loader label="Connecting to room..."/>
                     </div>
                 ) : (
-                    <div className="flex flex-col lg:flex-row gap-6 w-full items-center lg:items-start justify-between">
+                    <div className="flex flex-col lg:flex-row gap-6 w-full items-center justify-between">
                         <div className="w-full lg:w-1/3">
-                            <ParticipantList participants={participants} revealVotes={allVoted}/>
+                            <ParticipantList
+                                participants={participants}
+                                revealVotes={allVoted}
+                                timer={timer}
+                                allVoted={allVoted}
+                            />
                         </div>
 
                         <div className="flex-1 flex flex-col items-center gap-4">

@@ -1,7 +1,7 @@
 import {AnimatePresence, motion} from 'framer-motion';
 import type {IInlineAlertModel} from '../../types/types';
 import clsx from "clsx";
-import {variantStyles} from "../constants/constants.ts";
+import {alertVariantStyles} from "../constants/constants.ts";
 
 export default function InlineAlert(
     {
@@ -22,7 +22,7 @@ export default function InlineAlert(
                     transition={{duration: 0.3, ease: 'easeOut'}}
                     className={clsx(
                         'flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium shadow-sm',
-                        variantStyles[variant],
+                        alertVariantStyles[variant],
                         className
                     )}
                 >

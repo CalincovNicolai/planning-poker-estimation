@@ -5,8 +5,8 @@ export default function LayoutCard({title, children, className}: ILayoutCardMode
     return (
         <div
             className={clsx(
-                'w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-5xl xl:max-w-7xl bg-white dark:bg-zinc-800 rounded-xl shadow-xl p-6 md:p-8',
-                'border border-zinc-200 dark:border-zinc-700',
+                'w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-5xl xl:max-w-7xl bg-white dark:bg-zinc-700 rounded-xl shadow-xl p-6 md:p-8',
+                'border border-zinc-200 dark:border-zinc-600',
                 'transition-colors duration-200',
                 className
             )}

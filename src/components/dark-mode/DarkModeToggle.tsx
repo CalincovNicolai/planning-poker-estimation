@@ -16,7 +16,7 @@ export default function DarkModeToggle() {
             <Button
                 onClick={() => toggleDarkMode(isDarkMode ? 'light' : 'dark')}
                 aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-                className="relative flex items-center bg-zinc-200 dark:bg-zinc-700 p-1 rounded-xl w-24 h-12 transition-colors cursor-pointer"
+                className="relative flex items-center bg-zinc-200 dark:bg-zinc-600 p-1 rounded-xl w-24 h-12 transition-colors cursor-pointer"
             >
                 <motion.div
                     layout

@@ -36,7 +36,7 @@ function AppRoutes() {
                                 headerLeft={
                                     <BackToLobbyButton
                                         label={'Leave Room'}
-                                        className="w-40 h-12 p-3 bg-zinc-200 dark:bg-zinc-700 rounded-xl text-black dark:text-white hover:disabled:bg-zinc-200 hover:disabled:dark:bg-zinc-700 hover:bg-blue-400 hover:text-white transition-colors cursor-pointer"
+                                        className="w-40 h-12 p-3 bg-zinc-200 dark:bg-zinc-600 rounded-xl text-black dark:text-white hover:disabled:bg-zinc-200 hover:disabled:dark:bg-zinc-700 hover:bg-blue-400 hover:text-white transition-colors cursor-pointer"
                                     />
                                 }
                                 headerRight={<DarkModeToggle/>}
