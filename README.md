@@ -4,15 +4,48 @@ A real-time collaborative tool for estimating task complexity using Planning Pok
 
 ---
 
+## 📦 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/CalincovNicolai/planning-poker-estimation.git
+cd planning-poker-estimation
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the backend WebSocket server
+
+```bash
+node server/index.js
+```
+
+
+### 4. Start the React frontend
+
+```bash
+npm run dev
+```
+
+---
+
 ## 🚀 Features
 
 - ✅ Join or create a room by name
 - ✅ Real-time updates with WebSocket sync
+- ✅ Participant tracking with presence
 - ✅ Customizable story point cards: `1, 2, 3, 5, 8, 13, ?, ☕`
+- ✅ Room-based vote reset
 - ✅ Votes are hidden until all users vote
 - ✅ Responsive layout (mobile + desktop)
 - ✅ Clean animations with Framer Motion
 - ✅ Session-based vote persistence on refresh page
+- ✅ Timer per round (reset + early end)
 - ✅ Room lifecycle management (join, leave, reset)
 
 ---
@@ -48,30 +81,34 @@ A real-time collaborative tool for estimating task complexity using Planning Pok
 
 ---
 
-## 📦 Getting Started
+## 🌐 Live Demo
 
-### 1. Clone the repo
+- **Frontend (Vercel)**: [Planning Poker Estimation Tool](https://planning-poker-estimation.vercel.app)
+- **Backend (WebSocket on Render)**: `wss://planning-poker-estimation.onrender.com`
 
-```bash
-git clone https://github.com/CalincovNicolai/planning-poker-estimation.git
-cd planning-poker-estimation
-```
+> ⚠️ The frontend uses `VITE_BACKEND_WS_URL` to connect to the deployed backend.
 
-### 2. Install dependencies
+---
 
-```bash
-npm install
-```
+## 🚀 How to Use the App
 
-### 3. Start the backend WebSocket server
+1. **Open the frontend**:  
+   [Planning Poker Estimation Tool](https://planning-poker-estimation.vercel.app)
 
-```bash
-node server/index.js
-```
+2. **Enter your name** and an optional Room ID.
+    - If no Room ID is entered, a new one is generated.
+    - Share the Room URL with teammates to join the same session.
 
+3. **Vote using cards**:
+    - Hidden until all participants have voted.
+    - Shows ✅ (voted) or ❌ (waiting) for each participant.
 
-### 4. Start the React frontend
+4. **Timer**:
+    - A 60-second timer starts each round.
+    - Ends early if all users have voted.
 
-```bash
-npm run dev
-```
+5. **Reset Round**:
+    - Click “Reset Voting Round” to clear votes and restart the timer.
+
+6. **Refresh-safe**:
+    - Your vote and session persist across refreshes.
