@@ -17,16 +17,12 @@ A real-time collaborative tool for estimating task complexity using Planning Pok
 
 ---
 
----
-
 ## 🔐 Room & Session Behavior
 
 - Users can join with a name and optional Room ID (or generate one). 
 - Each session stores your name, ID, and vote. 
 - Refreshing the page preserves your vote and user info. 
 - Leaving the room removes your presence from the participant list.
-
----
 
 ---
 
