@@ -25,7 +25,6 @@ npm install
 node server/index.js
 ```
 
-
 ### 4. Start the React frontend
 
 ```bash
@@ -52,32 +51,32 @@ npm run dev
 
 ## 🔐 Room & Session Behavior
 
-- Users can join with a name and optional Room ID (or generate one). 
-- Each session stores your name, ID, and vote. 
-- Refreshing the page preserves your vote and user info. 
+- Users can join with a name and optional Room ID (or generate one).
+- Each session stores your name, ID, and vote.
+- Refreshing the page preserves your vote and user info.
 - Leaving the room removes your presence from the participant list.
 
 ---
 
 ## ⚙️ Room Management Logic
 
-- Votes reset when a new participant joins. 
-- Timer starts automatically when a round begins. 
-- If all participants vote early, the timer ends immediately. 
+- Votes reset when a new participant joins.
+- Timer starts automatically when a round begins.
+- If all participants vote early, the timer ends immediately.
 - Votes are revealed when everyone has voted.
 
 ---
 
 ## 🧩 Tech Stack
 
-| Tool        | Purpose                      |
-|-------------|------------------------------|
-| React       | UI framework                 |
-| Zustand     | Global state management      |
-| WebSocket   | Real-time communication      |
-| Tailwind CSS| Utility-first styling        |
+| Tool          | Purpose                   |
+| ------------- | ------------------------- |
+| React         | UI framework              |
+| Zustand       | Global state management   |
+| WebSocket     | Real-time communication   |
+| Tailwind CSS  | Utility-first styling     |
 | Framer Motion | Animations & transitions  |
-| TypeScript  | Type safety and structure    |
+| TypeScript    | Type safety and structure |
 
 ---
 
@@ -96,19 +95,19 @@ npm run dev
    [Planning Poker Estimation Tool](https://planning-poker-estimation.vercel.app)
 
 2. **Enter your name** and an optional Room ID.
-    - If no Room ID is entered, a new one is generated.
-    - Share the Room URL with teammates to join the same session.
+   - If no Room ID is entered, a new one is generated.
+   - Share the Room URL with teammates to join the same session.
 
 3. **Vote using cards**:
-    - Hidden until all participants have voted.
-    - Shows ✅ (voted) or ❌ (waiting) for each participant.
+   - Hidden until all participants have voted.
+   - Shows ✅ (voted) or ❌ (waiting) for each participant.
 
 4. **Timer**:
-    - A 60-second timer starts each round.
-    - Ends early if all users have voted.
+   - A 60-second timer starts each round.
+   - Ends early if all users have voted.
 
 5. **Reset Round**:
-    - Click “Reset Voting Round” to clear votes and restart the timer.
+   - Click “Reset Voting Round” to clear votes and restart the timer.
 
 6. **Refresh-safe**:
-    - Your vote and session persist across refreshes.
+   - Your vote and session persist across refreshes.
